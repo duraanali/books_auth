@@ -2,7 +2,7 @@ import React from 'react';
 import AddBook from './components/books/AddBook';
 import Home from './components/Home';
 import PrivateRoute from './PrivateRoute';
-import { Route, Link, Routes, useNavigate } from 'react-router-dom';
+import { Route, Link, Routes, useNavigate, useLocation } from 'react-router-dom';
 import EditBook from './components/books/EditBook';
 import Register from './components/user/Register';
 import Login from './components/user/Login';
@@ -24,7 +24,7 @@ function App() {
     try {
       Cookies.remove('token');
       setUserInfo(null);
-      location.reload();
+      window.location.reload();
       navigate('/user/login');
     } catch (error) {
       console.log('Logout error:', error);

@@ -27,7 +27,7 @@ const Login = () => {
       password: values.password,
     }).unwrap().then(() => {
       navigate("/");
-      location.reload();
+      window.location.reload();
     }
     );
   };

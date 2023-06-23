@@ -4,12 +4,10 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 import { useAddBookMutation } from "../../store/api/BookSlice";
-import { useGetUserQuery } from "../../store/api/UserSlice";
 
 const AddBook = () => {
 
   const [ addBook ] = useAddBookMutation();
-  const { data: user = {} } = useGetUserQuery();
 
   const navigate = useNavigate();
 
@@ -32,7 +30,6 @@ const AddBook = () => {
       author: values.author,
       price: values.price,
       image: values.image,
-      user_id: Number(user.id),
     }).unwrap().then(() => {
       navigate("/");
     }
